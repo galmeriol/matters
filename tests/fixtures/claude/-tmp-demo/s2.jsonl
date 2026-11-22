@@ -1,0 +1,3 @@
+{"type":"user","timestamp":"2026-11-01T14:00:00Z","cwd":"/tmp/demo","message":{"role":"user","content":"Why is the test suite slow?"}}
+{"type":"assistant","timestamp":"2026-11-01T14:00:09Z","message":{"role":"assistant","content":[{"type":"text","text":"Most time goes to database setup per test."}]}}
+{"type":"user","timestamp":"2026-11-01T14:05:00Z","message":{"role":"user","content":[{"type":"text","text":"<ide_opened_file>The user opened spec/helper.rb</ide_opened_file>"},{"type":"text","text":"Can we share one database across tests?"}]}}

@@ -1,0 +1,64 @@
+[project]
+name = "matters"
+version = "0.2.1"
+description = "A reading room for your Claude Code sessions: read, search and pick up where you left off."
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "markdown-it-py>=3",
+    "pygments>=2.21.0",
+]
+
+[project.scripts]
+matters = "matters.cli:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[dependency-groups]
+dev = [
+    "mypy>=1.13",
+    "pytest>=8.3",
+    "ruff>=0.8",
+    "types-pygments>=2.21.0.20261115",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+extend-exclude = [".venv.nosync"]
+
+[tool.ruff.lint]
+allowed-confusables = ["×", "–", "−"]
+select = ["E", "W", "F", "I", "B", "UP", "SIM", "RUF", "N", "PTH", "C4", "PIE", "RET"]
+
+[tool.ruff.lint.per-file-ignores]
+# HTML templates read better unwrapped.
+"src/matters/web/pages.py" = ["E501"]
+"src/matters/web/frame.py" = ["E501"]
+"src/matters/web/session_page.py" = ["E501"]
+"src/matters/web/tool_views.py" = ["E501"]
+"src/matters/web/brief_page.py" = ["E501"]
+"src/matters/web/search_page.py" = ["E501"]
+"src/matters/web/file_page.py" = ["E501"]
+"src/matters/web/agent_page.py" = ["E501"]
+"src/matters/web/work_views.py" = ["E501"]
+"src/matters/web/picker.py" = ["E501"]
+"src/matters/knowledge/extractor.py" = ["E501"]
+"src/matters/knowledge/editor.py" = ["E501"]
+"src/matters/knowledge/export.py" = ["E501"]
+"src/matters/web/knowledge_pages.py" = ["E501"]
+"src/matters/web/timeline_view.py" = ["E501"]
+"src/matters/web/human.py" = ["E501"]
+"src/matters/web/icons.py" = ["E501"]
+"tests/test_acceptance.py" = ["E501"]  # the expected brief, line for line
+
+[tool.mypy]
+strict = true
+files = ["src", "tests"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+addopts = ["-ra", "--strict-markers"]

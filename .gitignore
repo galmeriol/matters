@@ -1,0 +1,15 @@
+.venv
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+dist/
+.venv.nosync/
+.env
+matters-serve.log
+AGENTS.md
+docs/demo/
+.DS_Store
+.vscode/
+docs/ITERATIONS.md
